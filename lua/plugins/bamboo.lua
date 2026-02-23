@@ -3,11 +3,15 @@ return {
   lazy = false,
   priority = 1000,
   config = function()
-    require('bamboo').setup {
+    local bamboo = require('bamboo')
+
+    vim.g.bamboo_transparent = true
+
+    bamboo.setup {
       style = 'multiplex', -- 'vulgaris', 'multiplex', 'light'
-      toggle_style_key = nil, -- Keybind to toggle theme style. Leave it nil to disable it, or set it to a string, e.g. "<leader>ts"
+      toggle_style_key = "<leader>bs", -- Keybind to toggle theme style. Leave it nil to disable it, or set it to a string, e.g. "<leader>ts"
       toggle_style_list = { 'vulgaris', 'multiplex', 'light' }, -- List of styles to toggle between
-      transparent = true, -- Show/hide background
+      transparent = vim.g.bamboo_transparent, -- Show/hide background
       dim_inactive = false, -- Dim inactive windows/buffers
       term_colors = true, -- Change terminal color as per the selected theme style
       ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
@@ -43,6 +47,13 @@ return {
         background = true, -- use background color for virtual text
       },
     }
-    require('bamboo').load()
+    bamboo.load()
+
+    vim.keymap.set('n', '<leader>bt', function()
+      vim.g.bamboo_transparent = not vim.g.bamboo_transparent
+      bamboo.setup({ transparent = vim.g.bamboo_transparent })
+      bamboo.load()
+      print("Transparency: " .. (vim.g.bamboo_transparent and "On" or "Off"))
+    end, { desc = "Toggle Bamboo Theme Transparency"})
   end,
 }
