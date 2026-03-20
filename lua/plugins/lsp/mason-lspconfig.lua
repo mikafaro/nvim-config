@@ -7,6 +7,10 @@ return {
   opts = {
     ensure_installed = {
       "lua_ls",
+      "html",
+      "cssls",
+      "bashls",
+      "rust_analyzer"
     }
   },
 }
