@@ -1,12 +1,9 @@
 return {
   "nvim-telescope/telescope.nvim", version = '0.2.1',
   dependencies = {
-    -- required
-    'nvim-lua/plenary.nvim',
-    -- recommended
-    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-    --optional
-    "nvim-tree/nvim-web-devicons",
+    'nvim-lua/plenary.nvim', -- required
+    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }, -- recommended
+    "nvim-tree/nvim-web-devicons", -- optional
   },
 
   -- my telescope options
@@ -18,6 +15,11 @@ return {
           ["<C-k>"] = "move_selection_previous",
           ["<C-j>"] = "move_selection_next",
         },
+      },
+    },
+    pickers = {
+      find_files = {
+        hidden = true,
       },
     },
   },
