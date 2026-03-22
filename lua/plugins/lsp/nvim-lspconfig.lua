@@ -39,7 +39,7 @@ return {
 
         -- === Standard LSP Actions ===
 
-        bind('n', 'K', vim.lsp.buf.hover, 'Hover Documentation')
+        bind('n', 'K', function() vim.lsp.buf.hover({ border = "rounded" }) end, 'Hover Documentation')
         bind('n', '<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
         bind('n', '<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame Symbol')
         bind('i', '<C-s>', vim.lsp.buf.signature_help, 'Signature Help')
