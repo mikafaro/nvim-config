@@ -19,6 +19,18 @@ return {
       },
     })
 
+    vim.lsp.config('roslyn', {
+      settings = {
+        ["dotnet"] = {
+          enableDecompilationSupport = true,
+          searchReferenceAssemblies = true,
+        },
+        ["csharp"] = {
+          document_comments_on_type_parameters = true,
+        }
+      }
+    })
+
     -- Keymaps on lsp attach
     vim.api.nvim_create_autocmd('LspAttach', {
       callback = function(args)

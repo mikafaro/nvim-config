@@ -10,8 +10,7 @@ return {
       "html",
       "cssls",
       "bashls",
-      "rust_analyzer",
-      "roslyn"
+      "rust_analyzer"
     }
   },
 }
